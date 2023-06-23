@@ -1,0 +1,23 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  transition: all 450ms ease-in;
+}
+
+.navbar img {
+  cursor: pointer;
+  width: 40px;
+  object-fit: contain;
+  filter: saturate(400%);
+  margin: 0 1rem;
+  padding: 0.5rem 0;
+}
+
+.navbar img:first-child {
+  width: 130px;
+}

@@ -1,0 +1,116 @@
+.welcomePage {
+  position: relative;
+  height: 100vh;
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 8, 29, 0.7),
+      rgba(0, 8, 29, 0.7)
+    ),
+    url(https://assets.nflxext.com/ffe/siteui/vlv3/39f3c979-c105-4948-9c51-611eedf3a6fd/71ec72f0-c17a-4100-a2a3-a52e7b8ac733/IN-en-20230612-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+}
+
+.welcomePage .logo {
+  width: 15%;
+}
+
+.signIn, .signUp {
+  width: 30%;
+  height: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  background-color: rgba(15, 2, 2, 0.48);
+  backdrop-filter: blur(5px);
+  border-radius: 1.2rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signUp {
+  width: 30%;
+  height: 60%;
+}
+
+.signIn > div,
+.signUp > div {
+  width: 80%;
+}
+
+.signUp_link:hover,
+.signIn_link:hover {
+  text-decoration: underline;
+}
+
+
+.signInForm,
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.signIn__email,
+.signIn__password,
+.signUp__email,
+.signUp__password,
+.signUp__name {
+  background-color: #333;
+  border-top-left-radius: 0.7rem;
+  border-top-right-radius: 0.7rem;
+  width: 100%;
+}
+
+.signIn__email input,
+.signIn__password input,
+.signUp__email input,
+.signUp__password input,
+.signUp__name input{
+  color: white;
+}
+
+.signIn label, .signUp label {
+  color: rgb(255, 255, 255);
+}
+
+.signIn__btn, .signUp__btn {
+  align-self: center;
+  width: 80%;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  background-color: #d9232e;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .signIn {
+    width: 60%;
+    height: 40%;
+  }
+  .signUp {
+    height: 55%;
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .signIn {
+    width: 90%;
+    height: 55%;
+  }
+
+  .signUp {
+    width: 90%;
+    height: 65%;
+  }
+}
+
+

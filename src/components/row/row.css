@@ -1,0 +1,54 @@
+.movies__container {
+  padding-left: 1.2rem;
+  display: flex;
+  gap: 0.8rem;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+.row h2 {
+  padding-left: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  margin-top: 1.5rem;
+  color: white;
+}
+
+.movies__container::-webkit-scrollbar {
+  display: none;
+}
+
+.movies__container > img {
+  width: 100%;
+  height: 125px;
+  transition: all 450ms;
+  padding: 0.5rem 0;
+  transition: all 450ms;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.movies__container > img:hover {
+  transform: scale(1.09);
+}
+
+.movies__container .poster-large {
+  height: 250px;
+}
+
+.row .trailer {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .movies__container > img {
+    width: 100%;
+    height: 100px;
+  }
+
+  .movies__container .poster-large {
+    height: 190px;
+  }
+}
