@@ -13,6 +13,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logIn } from "../redux/slice";
 import { auth } from "./firebase";
+import { toast } from "react-toastify";
 
 function SignInPage({ setIsToggle }) {
   const [email, setEmail] = useState("");
@@ -20,7 +21,7 @@ function SignInPage({ setIsToggle }) {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
 
-  const handleSignUp = (e) => {
+  const handleSignIn = (e) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((response) => {
         const user = response.user;
@@ -31,7 +32,11 @@ function SignInPage({ setIsToggle }) {
           })
         );
       })
-      .catch((e) => console.log(e.message, "cdd"));
+      .catch((e) => {
+        console.log(e.message, "cdd");
+        const str = e.message.substring(e.message.indexOf("/")+1, e.message.length-2)
+        toast.error(`${str}`);
+      });
     e.preventDefault();
   };
 
@@ -47,6 +52,7 @@ function SignInPage({ setIsToggle }) {
             type="email"
             className="signIn__email"
             color="warning"
+            required
             value={email}
             onInput={(e) => setEmail(e.target.value)}
           />
@@ -59,6 +65,7 @@ function SignInPage({ setIsToggle }) {
               color="warning"
               id="password"
               value={password}
+              required
               onInput={(e) => setPassword(e.target.value)}
               type={showPassword ? "text" : "password"}
               endAdornment={
@@ -79,7 +86,7 @@ function SignInPage({ setIsToggle }) {
           <button
             className="signIn__btn"
             type="submit"
-            onClick={(e) => handleSignUp(e)}
+            onClick={(e) => handleSignIn(e)}
           >
             Sign In
           </button>

@@ -18,7 +18,6 @@ const netflix = createSlice({
     },
     logOut: (state, action) => {
       state.user = action.payload
-      console.log(action);
     },
   },
 });

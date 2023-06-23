@@ -3,13 +3,19 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import AVATAR from "../../assets/Netflix-avatar.png";
-import { logOut } from "../redux/slice";
 import "./profile.css";
+import { logOut } from "../redux/slice";
 
 function Profile() {
   const user = useSelector((store) => store.netflix.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  function handleLogOut() {
+    navigate("/")
+    dispatch(logOut(null));
+    sessionStorage.clear(0)
+  }
 
   return (
     <div className="profile-wrapper">
@@ -32,13 +38,7 @@ function Profile() {
 
         <h5>Netflix Current Plan</h5>
         <article className="profile__plan">Premium</article>
-        <button
-          className="profile__logOut"
-          onClick={() => {
-            dispatch(logOut(null));
-            navigate("/");
-          }}
-        >
+        <button className="profile__logOut" onClick={handleLogOut}>
           LogOut!
         </button>
       </section>

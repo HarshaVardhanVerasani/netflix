@@ -10,6 +10,7 @@ import {
 import FilledInput from "@mui/material/FilledInput";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useRef, useState } from "react";
+import { toast } from "react-toastify";
 import { auth } from "./firebase";
 function SignUpPage({ setIsToggle }) {
   const [email, setEmail] = useState("");
@@ -17,13 +18,19 @@ function SignUpPage({ setIsToggle }) {
   const [showPassword, setShowPassword] = useState(false);
   const ref = useRef(null);
 
-  const handleSignIn = (e) => {
+  const handleSignUp = (e) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((e) => {
         console.log("new account is created");
         ref.current.click();
       })
-      .catch((e) => console.log(e.message, "c"));
+      .catch((e) => {
+        const str = e.message.substring(
+          e.message.indexOf("/") + 1,
+          e.message.length - 2
+        );
+        toast.error(`${str}`);
+      });
     e.preventDefault();
   };
 
@@ -39,6 +46,7 @@ function SignUpPage({ setIsToggle }) {
             type="text"
             className="signUp__name"
             color="warning"
+            required
           />
           <TextField
             id="email"
@@ -47,6 +55,7 @@ function SignUpPage({ setIsToggle }) {
             type="email"
             className="signUp__email"
             color="warning"
+            required
             value={email}
             onInput={(e) => setEmail(e.target.value)}
           />
@@ -58,6 +67,7 @@ function SignUpPage({ setIsToggle }) {
               color="warning"
               id="password"
               value={password}
+              required
               onInput={(e) => setPassword(e.target.value)}
               type={showPassword ? "text" : "password"}
               endAdornment={
@@ -75,7 +85,7 @@ function SignUpPage({ setIsToggle }) {
             />
           </FormControl>
 
-          <button className="signUp__btn" type="submit" onClick={handleSignIn}>
+          <button className="signUp__btn" type="submit" onClick={handleSignUp}>
             Sign Up
           </button>
         </form>
