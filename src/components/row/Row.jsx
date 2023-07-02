@@ -60,6 +60,7 @@ function Row({ title, request, isLarge }) {
                 alt={curr.name || curr.title}
                 key={curr.id}
                 className={isLarge && "poster-large"}
+                loading="lazy"
               />
             );
           }

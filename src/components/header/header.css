@@ -54,3 +54,33 @@
     #111
   );
 }
+
+@media screen and (max-width: 600px) {
+  .header__content {
+    width: 45%;
+    height: 250px;
+    margin-left: 2rem;
+    background-color: rgba(62, 59, 59, 0.25);
+    border-radius: 0.5rem;
+    padding: 0 1.2rem;
+    overflow: auto;
+  }
+
+  .header__buttons {
+    margin: 0;
+    display: flex;
+  }
+
+  .header__btn {
+    background-color: white;
+    color: black;
+  }
+
+  .header__buttons button:first-child {
+    margin-right: 0.3rem;
+  }
+
+  .header {
+    background-position: left;
+  }
+}
