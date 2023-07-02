@@ -3,6 +3,7 @@
   height: 58vh;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: top;
   display: flex;
   align-items: center;
   position: relative;
